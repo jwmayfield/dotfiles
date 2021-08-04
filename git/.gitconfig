@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+name = Jason Mayfield
+email = jason@jwmayfield.com
+
+[pager]
+diff = diff-so-fancy | less --tabs=1,5 -RFX
+show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[pull]
+rebase = false
