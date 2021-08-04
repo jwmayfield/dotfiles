@@ -88,9 +88,9 @@ colors:
 selection:
   save_to_clipboard: true
 
-shell:
-  program: /usr/local/bin/fish
-  args:
-    - -l
-    - -c
-    - tmux
+# shell:
+#   program: /usr/local/bin/fish
+#   args:
+#     - -l
+#     - -c
+#     - tmux
