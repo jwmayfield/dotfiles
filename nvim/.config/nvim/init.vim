@@ -1,9 +1,9 @@
 if !exists('g:vscode')
   let g:ale_disable_lsp = 1
   let g:loaded_python_provider = 0
-  let g:node_host_prog=expand("~/bin/neovim-node-host")
-  let g:python3_host_prog=expand("~/bin/python")
-  let g:ruby_host_prog=expand("~/bin/neovim-ruby-host")
+  let g:node_host_prog=expand("~/.bin/neovim-node-host")
+  let g:python3_host_prog=expand("~/.bin/python")
+  let g:ruby_host_prog=expand("~/.bin/neovim-ruby-host")
 
   call plug#begin('~/.vim/plugged')
     " preferred color scheme
