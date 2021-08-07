@@ -19,12 +19,14 @@ if !exists('g:vscode')
     Plug 'kevinoid/vim-jsonc'
 
     " completions
-    Plug 'codota/tabnine-vim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " finding files
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
     " plugins to review
-    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'editorconfig/editorconfig-vim'
-    " Plug 'ervandew/supertab'
     Plug 'sheerun/vim-polyglot'
     Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-endwise'
@@ -33,6 +35,12 @@ if !exists('g:vscode')
     Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
   call plug#end()
+
+  let g:coc_global_extensions = [
+  \  'coc-json',
+  \  'coc-snippets',
+  \  'coc-tabnine',
+  \  ]
 
   syntax on
   filetype plugin indent on
@@ -139,6 +147,39 @@ if !exists('g:vscode')
       let g:ale_php_phpcbf_standard = l:phpcs[0][1]['standard']
       let g:ale_php_phpcs_standard = l:phpcs[0][1]['standard']
       let g:ale_php_phpcs_options = l:phpcs[0][1]['options']
+    endif
+  endfunction
+
+  " map fzf to ctrl-p for muscle memory
+  nmap <C-P> :FZF<CR>
+
+  " navigate CoC completions using tab,
+  " without auto-selecting the first one,
+  " and jump through snippets
+  " (combo of docs from coc and coc-snippets)
+  inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+	  \ coc#expandableOrJumpable() ?
+	  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	  \ <SID>check_back_space() ? "\<TAB>" :
+	  \ coc#refresh()
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  let g:coc_snippet_next = '<tab>'
+
+  " confirm completion / snippet with <cr>,
+  " bypassing conflict with vim-endwise
+  " https://github.com/tpope/vim-endwise/issues/125#issuecomment-743921576
+  inoremap <silent> <CR> <C-r>=<SID>coc_confirm()<CR>
+  function! s:coc_confirm() abort
+    if pumvisible()
+      return coc#_select_confirm()
+    else
+      return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     endif
   endfunction
 endif
