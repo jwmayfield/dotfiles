@@ -16,7 +16,10 @@ if !exists('g:vscode')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
-    " linting and fixing
+    " indentation
+    Plug 'tpope/vim-sleuth'
+
+    " non-lsp linting and fixing
     Plug 'dense-analysis/ale'
 
     " project configuration
@@ -39,6 +42,8 @@ if !exists('g:vscode')
 
   let g:coc_global_extensions = [
   \  'coc-json',
+  \  'coc-phpls',
+  \  'coc-prettier',
   \  'coc-snippets',
   \  'coc-tabnine',
   \  'coc-tsserver',
@@ -56,6 +61,7 @@ if !exists('g:vscode')
   let mapleader=','
 
   set backspace=indent,eol,start
+  set cmdheight=2
   set cursorline
   set ignorecase      " ignore case when searching
   set modeline        " last lines in document sets vim mode
@@ -102,20 +108,7 @@ if !exists('g:vscode')
   " explicitly listed
   let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \   'css': ['prettier'],
-  \   'graphql': ['prettier'],
-  \   'html': ['prettier'],
-  \   'javascript': ['prettier'],
-  \   'json': ['prettier'],
-  \   'json5': ['prettier'],
-  \   'less': ['prettier'],
-  \   'markdown': ['prettier'],
-  \   'php': ['remove_trailing_lines', 'trim_whitespace', 'prettier', 'phpcbf'],
-  \   'python': ['isort', 'black'],
-  \   'ruby': ['remove_trailing_lines', 'trim_whitespace', 'standardrb'],
-  \   'scss': ['prettier'],
-  \   'typescript': ['prettier'],
-  \   'yaml': ['prettier'],
+  \   'php': ['phpcbf'],
   \}
   let g:ale_fix_on_save = 1
 
