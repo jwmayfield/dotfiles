@@ -1,3 +1,5 @@
 {
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.formatOnSaveFiletypes": ["*"],
 	"diagnostic.displayByAle": true
 }

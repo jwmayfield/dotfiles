@@ -9,28 +9,29 @@ if !exists('g:vscode')
     " preferred color scheme
     Plug 'arcticicestudio/nord-vim'
 
+    " completions
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " finding
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
     " linting and fixing
     Plug 'dense-analysis/ale'
+
+    " project configuration
+    Plug 'tpope/vim-projectionist'
+
+    " syntax
+    Plug 'sheerun/vim-polyglot'
 
     " vcs integrations
     Plug 'mhinz/vim-signify'
 
-    " syntax
-    Plug 'kevinoid/vim-jsonc'
-
-    " completions
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    " finding files
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-
     " plugins to review
     Plug 'editorconfig/editorconfig-vim'
-    Plug 'sheerun/vim-polyglot'
     Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-endwise'
-    Plug 'tpope/vim-projectionist'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
@@ -40,6 +41,7 @@ if !exists('g:vscode')
   \  'coc-json',
   \  'coc-snippets',
   \  'coc-tabnine',
+  \  'coc-tsserver',
   \  ]
 
   syntax on
