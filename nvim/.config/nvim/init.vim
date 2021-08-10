@@ -45,7 +45,6 @@ if !exists('g:vscode')
   \  'coc-phpls',
   \  'coc-prettier',
   \  'coc-snippets',
-  \  'coc-spell-checker',
   \  'coc-tabnine',
   \  'coc-tsserver',
   \  ]
