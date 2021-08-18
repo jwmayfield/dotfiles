@@ -9,6 +9,8 @@ if !exists('g:vscode')
     " preferred color scheme
     Plug 'arcticicestudio/nord-vim'
 
+    " some sensible defaults
+    Plug 'tpope/vim-sensible'
     " completions
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -36,7 +38,6 @@ if !exists('g:vscode')
     Plug 'tomtom/tcomment_vim'
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-rails'
-    Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
   call plug#end()
 
@@ -46,6 +47,7 @@ if !exists('g:vscode')
   \  'coc-prettier',
   \  'coc-snippets',
   \  'coc-tabnine',
+  \  'coc-tailwindcss',
   \  'coc-tsserver',
   \  ]
 
