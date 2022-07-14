@@ -7,3 +7,9 @@ starship init fish | source
 
 source $XDG_CONFIG_HOME/fish/alias.fish
 source $HOMEBREW_PREFIX/opt/asdf/asdf.fish
+
+# Platform.sh config
+fish_add_path $HOME/.platformsh/bin
+if test -f $HOME/.platformsh/shell-config.rc
+	$HOME/.platformsh/shell-config.rc
+end
