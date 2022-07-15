@@ -25,10 +25,13 @@ if !exists('g:vscode')
     Plug 'dense-analysis/ale'
 
     " project configuration
-    Plug 'tpope/vim-projectionist'
+    " Plug 'tpope/vim-projectionist'
 
     " syntax
     Plug 'sheerun/vim-polyglot'
+
+    " tags
+    Plug 'ludovicchabant/vim-gutentags'
 
     " vcs integrations
     Plug 'mhinz/vim-signify'
@@ -39,11 +42,11 @@ if !exists('g:vscode')
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-rails'
     Plug 'vim-airline/vim-airline'
+    Plug 'junegunn/limelight.vim'
   call plug#end()
 
   let g:coc_global_extensions = [
   \  'coc-json',
-  \  'coc-phpls',
   \  'coc-prettier',
   \  'coc-snippets',
   \  'coc-tabnine',
@@ -110,12 +113,15 @@ if !exists('g:vscode')
   " explicitly listed
   let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \   'php': ['php_cs_fixer', 'phpcbf'],
+  \   'php': ['phpcbf'],
   \}
   let g:ale_fix_on_save = 1
 
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+  let g:ale_php_phpcbf_standard = 'PSR12,WordPress-VIP-Go'
+  let g:ale_php_phpcs_standard = 'PSR12,WordPress-VIP-Go'
 
   " settings :: Nvim-R plugin
 
@@ -128,24 +134,24 @@ if !exists('g:vscode')
   " vcs plugins configuration
   set updatetime=100
 
-  augroup configure_projects
-    autocmd!
-    autocmd User ProjectionistActivate call s:linters()
-  augroup END
-
-  function! s:linters() abort
-    let l:linters = projectionist#query('linters')
-    if len(l:linters) > 0
-      let b:ale_linters = {&filetype: l:linters[0][1]}
-    endif
-
-    let l:phpcs = projectionist#query('phpcs')
-    if len(l:phpcs) > 0
-      let g:ale_php_phpcbf_standard = l:phpcs[0][1]['standard']
-      let g:ale_php_phpcs_standard = l:phpcs[0][1]['standard']
-      let g:ale_php_phpcs_options = l:phpcs[0][1]['options']
-    endif
-  endfunction
+  " augroup configure_projects
+  "   autocmd!
+  "   autocmd User ProjectionistActivate call s:linters()
+  " augroup END
+  "
+  " function! s:linters() abort
+  "   let l:linters = projectionist#query('linters')
+  "   if len(l:linters) > 0
+  "     let b:ale_linters = {&filetype: l:linters[0][1]}
+  "   endif
+  "
+  "   let l:phpcs = projectionist#query('phpcs')
+  "   if len(l:phpcs) > 0
+  "     let g:ale_php_phpcbf_standard = l:phpcs[0][1]['standard']
+  "     let g:ale_php_phpcs_standard = l:phpcs[0][1]['standard']
+  "     let g:ale_php_phpcs_options = l:phpcs[0][1]['options']
+  "   endif
+  " endfunction
 
   " map fzf to ctrl-p for muscle memory
   nmap <C-P> :FZF<CR>
@@ -179,4 +185,8 @@ if !exists('g:vscode')
       return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     endif
   endfunction
+
+  let g:gutentags_cache_dir = '~/.vim/gutentags'
+
+  autocmd VimEnter * Limelight
 endif
