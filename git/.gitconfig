@@ -7,7 +7,11 @@ email = jason@jwmayfield.com
 diff = diff-so-fancy | less --tabs=1,5 -RFX
 show = diff-so-fancy | less --tabs=1,5 -RFX
 
+[push]
+autoSetupRemote = true
+
 [pull]
 rebase = false
+
 [init]
-	defaultBranch = main
+defaultBranch = main

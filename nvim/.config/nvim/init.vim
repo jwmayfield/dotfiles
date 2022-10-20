@@ -42,7 +42,7 @@ if !exists('g:vscode')
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-rails'
     Plug 'vim-airline/vim-airline'
-    Plug 'junegunn/limelight.vim'
+    " Plug 'junegunn/limelight.vim'
   call plug#end()
 
   let g:coc_global_extensions = [
@@ -113,8 +113,8 @@ if !exists('g:vscode')
   " explicitly listed
   let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \   'php': ['phpcbf'],
   \}
+  " \   'php': ['phpcbf'],
   let g:ale_fix_on_save = 1
 
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -188,5 +188,5 @@ if !exists('g:vscode')
 
   let g:gutentags_cache_dir = '~/.vim/gutentags'
 
-  autocmd VimEnter * Limelight
+  "autocmd VimEnter * Limelight
 endif
