@@ -1,7 +1,7 @@
 {
+  "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   "diagnostic.displayByAle": true,
-  "intelephense.format.enable": true,
   "tsserver.formatOnType": true
 }
