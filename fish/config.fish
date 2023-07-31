@@ -9,3 +9,4 @@ source $XDG_CONFIG_HOME/fish/alias.fish
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 fish_add_path /opt/homebrew/opt/openjdk/bin
+fish_config theme choose Nord

@@ -9,6 +9,8 @@ M.servers = {
   "bashls",
   "jsonls",
   "yamlls",
+  "ruby_ls",
+  "standardrb"
 }
 
 return M
