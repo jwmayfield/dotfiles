@@ -1,31 +1,64 @@
-vim.g.mapleader = " "
+-- [[ Setting options ]]
+-- See `:help vim.o`
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- Set highlight on search
+vim.o.hlsearch = false
+vim.o.incsearch = true
 
-vim.opt.smartindent = true
+-- Make line numbers default
+vim.wo.number = true
+vim.wo.relativenumber = true
 
-vim.opt.wrap = false
+-- Enable mouse mode
+vim.o.mouse = 'a'
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.o.clipboard = 'unnamedplus'
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+-- Indents
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
 
-vim.opt.termguicolors = true
+-- Enable break indent
+vim.o.breakindent = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+-- Save undo history but don't use swap file
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
+vim.o.undofile = true
 
-vim.opt.updatetime = 50
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-vim.opt.colorcolumn = "80"
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- NOTE: You should make sure your terminal supports this
+vim.o.termguicolors = true
+
+-- Keep at least 8 lines visible
+vim.o.scrolloff = 8
+vim.opt.isfname:append('@-@')
+
+-- Display the 80 character line length
+vim.o.colorcolumn = '80'
