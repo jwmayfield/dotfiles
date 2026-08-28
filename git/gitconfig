@@ -15,3 +15,18 @@ rebase = false
 
 [init]
 defaultBranch = main
+[coderabbit]
+	machineId = cli/d993535246b84e53a30493db9662d9cd
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[safe]
+	directory = /Users/jason.mayfield/Code/linguistik/.worktrees/build-test-speedups
+	directory = /Users/jason.mayfield/Code/linguistik
+	directory = /Users/jason.mayfield/Code/linguistik/.worktrees/build-test-speedups
+	directory = /Users/jason.mayfield/Code/linguistik
+[url "https://github.com/"]
+	insteadOf = git@github.com:
