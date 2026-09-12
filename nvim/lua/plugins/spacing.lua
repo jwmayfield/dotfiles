@@ -2,5 +2,5 @@
 return {
   'tpope/vim-sleuth',
   -- Add indentation guides even on blank lines
-  { 'lukas-reineke/indent-blankline.nvim', opts = {} },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 }
