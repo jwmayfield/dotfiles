@@ -2,3 +2,4 @@
 fish/*
 !fish/alias.fish
 !fish/config.fish
+.worktrees/
